@@ -9,49 +9,59 @@ namespace ConsoleFinance
     {
         static void Main(string[] args)
         {
-            var banco = new Banco();
-            bool sair = false;
-
-            while (!sair)
+            try
             {
-                Console.Clear();
-                Console.WriteLine("=== Console Finance ===");
-                Console.WriteLine("1. Cadastrar conta");
-                Console.WriteLine("2. Listar contas");
-                Console.WriteLine("3. Depósito");
-                Console.WriteLine("4. Saque");
-                Console.WriteLine("5. Histórico");
-                Console.WriteLine("0. Sair");
-                Console.Write("Escolha uma opção: ");
+                var banco = new Banco();
+                bool sair = false;
 
-                switch (Console.ReadLine())
+                while (!sair)
                 {
-                    case "1":
-                        CadastrarConta(banco);
-                        break;
-                    case "2":
-                        ListarContas(banco);
-                        break;
-                    case "3":
-                        Operacao(banco, isDeposito: true);
-                        break;
-                    case "4":
-                        Operacao(banco, isDeposito: false);
-                        break;
-                    case "5":
-                        ExibirHistorico(banco);
-                        break;
-                    case "0":
-                        sair = true;
-                        break;
-                    default:
-                        Console.WriteLine("Opção inválida. Tecle Enter para voltar.");
-                        Console.ReadLine();
-                        break;
+                    Console.Clear();
+                    Console.WriteLine("=== Console Finance ===");
+                    Console.WriteLine("1. Cadastrar conta");
+                    Console.WriteLine("2. Listar contas");
+                    Console.WriteLine("3. Depósito");
+                    Console.WriteLine("4. Saque");
+                    Console.WriteLine("5. Histórico");
+                    Console.WriteLine("0. Sair");
+                    Console.Write("Escolha uma opção: ");
+
+                    switch (Console.ReadLine())
+                    {
+                        case "1":
+                            CadastrarConta(banco);
+                            break;
+                        case "2":
+                            ListarContas(banco);
+                            break;
+                        case "3":
+                            Operacao(banco, isDeposito: true);
+                            break;
+                        case "4":
+                            Operacao(banco, isDeposito: false);
+                            break;
+                        case "5":
+                            ExibirHistorico(banco);
+                            break;
+                        case "0":
+                            sair = true;
+                            break;
+                        default:
+                            Console.WriteLine("Opção inválida. Tecle Enter para voltar.");
+                            Console.ReadLine();
+                            break;
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                Console.Clear();
+                Console.WriteLine("Ocorreu um erro inesperado:");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine("Tecle Enter para encerrar.");
+                Console.ReadLine();
+            }
         }
-
         static void CadastrarConta(Banco banco)
         {
             Console.Clear();
@@ -107,7 +117,7 @@ namespace ConsoleFinance
             var conta = banco.BuscarPorNumero(numero);
             if (conta == null)
             {
-                Console.WriteLine("Conta não encontrada. Tecle Enter.");
+                Console.WriteLine("Conta não encontrada. Tecle Enter para voltar.");
                 Console.ReadLine();
                 return;
             }
@@ -115,7 +125,14 @@ namespace ConsoleFinance
             Console.Write(isDeposito ? "Valor do depósito: " : "Valor do saque: ");
             if (!decimal.TryParse(Console.ReadLine(), out var valor))
             {
-                Console.WriteLine("Valor inválido. Tecle Enter.");
+                Console.WriteLine("Valor inválido. Tecle Enter para voltar.");
+                Console.ReadLine();
+                return;
+            }
+
+            if (valor <= 0)
+            {
+                Console.WriteLine("O valor deve ser maior que zero. Tecle Enter para voltar.");
                 Console.ReadLine();
                 return;
             }
