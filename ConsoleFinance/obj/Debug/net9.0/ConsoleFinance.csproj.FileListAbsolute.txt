@@ -1,0 +1,14 @@
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\bin\Debug\net9.0\ConsoleFinance.exe
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\bin\Debug\net9.0\ConsoleFinance.deps.json
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\bin\Debug\net9.0\ConsoleFinance.runtimeconfig.json
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\bin\Debug\net9.0\ConsoleFinance.dll
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\bin\Debug\net9.0\ConsoleFinance.pdb
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.AssemblyInfoInputs.cache
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.AssemblyInfo.cs
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.csproj.CoreCompileInputs.cache
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.dll
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\refint\ConsoleFinance.dll
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.pdb
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ConsoleFinance.genruntimeconfig.cache
+C:\Users\h50046322\Projetos\ConsoleFinance\ConsoleFinance\obj\Debug\net9.0\ref\ConsoleFinance.dll
