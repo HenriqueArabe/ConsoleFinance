@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using ConsoleFinance.Models;
 using ConsoleFinance.Services;
 
@@ -56,15 +57,35 @@ namespace ConsoleFinance
             Console.Clear();
             Console.Write("Número da conta: ");
             var numero = Console.ReadLine()!;
+
+            // Valida duplicidade de número
+            if (banco.BuscarPorNumero(numero) != null)
+            {
+                Console.WriteLine("Já existe uma conta com esse número. Tecle Enter para voltar.");
+                Console.ReadLine();
+                return;
+            }
+
             Console.Write("Nome do titular: ");
             var nome = Console.ReadLine()!;
-            Console.Write("CPF do titular: ");
-            var cpf = Console.ReadLine()!;
 
+            // Validação básica de CPF (11 dígitos numéricos)
+            string cpf;
+            do
+            {
+                Console.Write("CPF do titular (11 dígitos, somente números): ");
+                cpf = Console.ReadLine()!;
+                if (!Regex.IsMatch(cpf, @"^\d{11}$"))
+                {
+                    Console.WriteLine("Formato de CPF inválido. Digite novamente.");
+                }
+            } while (!Regex.IsMatch(cpf, @"^\d{11}$"));
+
+            // Cria e registra a conta
             var conta = new Conta(numero, new Cliente(nome, cpf));
             banco.AdicionarConta(conta);
 
-            Console.WriteLine("Conta cadastrada com sucesso! Tecle Enter.");
+            Console.WriteLine("Conta cadastrada com sucesso! Tecle Enter para voltar.");
             Console.ReadLine();
         }
 
